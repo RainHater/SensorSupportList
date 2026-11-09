@@ -8,6 +8,14 @@ endif
 ifneq ($(BUILD_PATH), )
 include ../../sensor.mk
 endif
+
+# Sensor driver include paths
+CFLAGS += -I$(MW_INC)
+CFLAGS += -I$(ISP_INC)
+CFLAGS += -I$(VI_INC)
+CFLAGS += -I$(KERNEL_INC)
+CFLAGS += -I$(SENSOR_LIST_INC)
+
 #
 SRCS = $(shell find $(sensor-y) -name '*.c')
 OBJS = $(SRCS:.c=.o) $(SENSOR_LIST_INC)/sensor_list.o
